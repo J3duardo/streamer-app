@@ -5,11 +5,13 @@ import StreamDelete from "./streams/StreamDelete";
 import StreamEdit from "./streams/StreamEdit";
 import StreamList from "./streams/StreamList";
 import StreamShow from "./streams/StreamShow";
+import Header from "./Header";
 
 class App extends Component {
   render() {
     return (
       <div>
+        <Header />
         <BrowserRouter>
           <div>
             <Route path="/" exact component={StreamList}/>
