@@ -16,6 +16,12 @@ class StreamList extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    streams: state.streams
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     requestStreams: () => {
@@ -24,4 +30,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(StreamList);
+export default connect(mapStateToProps, mapDispatchToProps)(StreamList);
