@@ -13,8 +13,8 @@ export const signOut = () => {
   }
 }
 
-export const createStream = (formValues) => {
-  const request = streams.post("/streams", formValues)
+export const createStream = (formValues, userId) => {
+  const request = streams.post("/streams", {...formValues, userId})
   .then(response => {
     return response.data
   });
