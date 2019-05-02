@@ -33,7 +33,7 @@ class StreamCreate extends Component {
   }
 
   onSubmitHandler = (formValues) => {
-    this.props.createNewStream(formValues);
+    this.props.createNewStream(formValues, this.props.userId);
   }
 
   render() {
@@ -61,6 +61,12 @@ const validateForm = (formValues) => {
   return errors;
 }
 
+const mapStateToProps = (state) => {
+  return {
+    userId: state.auth.userId
+  }
+}
+
 const form = reduxForm({
   form: "StreamCreate",
   validate: validateForm
@@ -68,11 +74,11 @@ const form = reduxForm({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createNewStream: (formvalues) => {
-      dispatch(createStream(formvalues))
+    createNewStream: (formValues, userId) => {
+      dispatch(createStream(formValues, userId))
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(form)
+export default connect(mapStateToProps, mapDispatchToProps)(form)
 
