@@ -37,13 +37,19 @@ class StreamCreate extends Component {
   }
 
   render() {
-    return (
-      <form className="ui form" onSubmit={this.props.handleSubmit(this.onSubmitHandler)}>
-        <Field name="title" component={this.renderInput} placeholder="Title..." label="Enter Title:"/>
-        <Field name="description" component={this.renderInput} placeholder="Description" label="Enter Description:"/>
-        <button className="ui button primary">Submit</button>
-      </form>
-    );
+    if(this.props.userId) {
+      return (
+        <form className="ui form" onSubmit={this.props.handleSubmit(this.onSubmitHandler)}>
+          <Field name="title" component={this.renderInput} placeholder="Title..." label="Enter Title:"/>
+          <Field name="description" component={this.renderInput} placeholder="Description" label="Enter Description:"/>
+          <button className="ui button primary">Submit</button>
+        </form>
+      );
+    } else {
+      return (
+        <h2>You must be logged-in in order to create streams</h2>
+      )
+    }
   }
 }
 
