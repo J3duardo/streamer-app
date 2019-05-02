@@ -24,3 +24,52 @@ export const createStream = (formValues) => {
     payload: request
   }
 }
+
+export const fetchStreams = () => {
+  const request = streams.get("/streams")
+  .then((response) => {
+    return response.data
+  });
+
+  return {
+    type: "FETCH_STREAMS",
+    payload: request
+  }
+}
+
+export const fetchSingleStream = (id) => {
+  const request = streams.get(`/streams/${id}`)
+  .then((response) => {
+    return response.data
+  });
+
+  return {
+    type: "FETCH_SINGLE_STREAM",
+    payload: request
+  }
+}
+
+export const editStream = (id, formValues) => {
+  const request = streams.put(`streams/${id}`, formValues)
+  .then((response) => {
+    return response.data
+  });
+
+  return {
+    type: "EDIT_STREAM",
+    payload: request
+  }
+}
+
+export const deleteStream = (id) => {
+  let updatedStreams = null;
+  streams.delete(`/streams/${id}`)
+  .then((streams.get("/streams")).then(response => {
+    updatedStreams = response.data;
+  }))
+
+  return {
+    type: "DELETE_STREAM",
+    payload: updatedStreams
+  }
+}
