@@ -1,4 +1,5 @@
 import streams from "../axiosInstance/streams";
+import history from "../history";
 
 export const signIn = (userId) => {
   return {
@@ -16,6 +17,7 @@ export const signOut = () => {
 export const createStream = (formValues, userId) => {
   const request = streams.post("/streams", {...formValues, userId})
   .then(response => {
+    history.push("/");
     return response.data
   });
 
