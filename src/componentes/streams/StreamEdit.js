@@ -9,7 +9,7 @@ class StreamEdit extends Component {
   }
 
   onSubmitHandler = (formValues) => {
-    this.props.editStream(this.props.match.params.id, formValues)
+    this.props.submitEdition(formValues, this.props.match.params.id)
   }
 
   render() {
@@ -39,8 +39,8 @@ const mapDispatchToProps = (dispatch) => {
     streamToEdit: (id) => {
       dispatch(fetchSingleStream(id))
     },
-    editStream: () => {
-      dispatch(editStream())
+    submitEdition: (formValues, streamId) => {
+      dispatch(editStream(formValues, streamId))
     }
   }
 }
