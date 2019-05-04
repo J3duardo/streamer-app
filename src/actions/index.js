@@ -51,8 +51,8 @@ export const fetchSingleStream = (id) => {
   }
 }
 
-export const editStream = (id, formValues) => {
-  const request = streams.put(`streams/${id}`, formValues)
+export const editStream = (formValues, id) => {
+  const request = streams.patch(`streams/${id}`, formValues)
   .then((response) => {
     history.push("/");
     return response.data
