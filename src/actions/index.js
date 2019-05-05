@@ -65,14 +65,9 @@ export const editStream = (formValues, id) => {
 }
 
 export const deleteStream = (id) => {
-  let updatedStreams = null;
   streams.delete(`/streams/${id}`)
-  .then((streams.get("/streams")).then(response => {
-    updatedStreams = response.data;
-  }))
 
   return {
-    type: "DELETE_STREAM",
-    payload: updatedStreams
+    type: "DELETE_STREAM"
   }
 }
