@@ -66,6 +66,9 @@ export const editStream = (formValues, id) => {
 
 export const deleteStream = (id) => {
   streams.delete(`/streams/${id}`)
+  .then(() => {
+    history.push("/")
+  })
 
   return {
     type: "DELETE_STREAM",
