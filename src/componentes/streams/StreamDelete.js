@@ -22,13 +22,21 @@ class StreamDelete extends Component {
     history.push("/")
   }
 
+  streamContent = () => {
+    if(!this.props.stream) {
+      return "Are you sure you want to delete this stream?"
+    }
+
+    return `Are you sure you want to delete ths stream ${this.props.stream.title}`
+  }
+
   render() {
     return (
       <div>
         Stream Delete
         <Modal
           title="Delete Stream"
-          content={`Are you sure you want to delete the stream ${this.props.stream.title}?`}
+          content={this.streamContent()}
           actions={this.renderActions()}
           onDismiss={this.onDismissHandler}
         />
