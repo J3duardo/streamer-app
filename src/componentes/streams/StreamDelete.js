@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Modal from "../Modal";
-import history from "../../history";
 import {connect} from "react-redux";
 import {deleteStream, fetchSingleStream} from "../../actions";
+import {Link} from "react-router-dom";
 
 class StreamDelete extends Component {
   componentDidMount() {
@@ -13,13 +13,9 @@ class StreamDelete extends Component {
     return (
       <React.Fragment>
         <button className="ui button negative">Delete</button>
-        <button className="ui button" onClick={this.onDismissHandler}>Cancel</button>
+        <Link to="/" className="ui button">Cancel</Link>
       </React.Fragment>
     )
-  }
-
-  onDismissHandler = () => {
-    history.push("/")
   }
 
   streamContent = () => {
