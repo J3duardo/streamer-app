@@ -12,18 +12,18 @@ class StreamDelete extends Component {
   renderActions = () => {
     return (
       <React.Fragment>
-        <button className="ui button negative">Delete</button>
+        <button onClick={() => this.props.delete(this.props.match.params.id)} className="ui button negative">Delete</button>
         <Link to="/" className="ui button">Cancel</Link>
       </React.Fragment>
     )
   }
 
   streamContent = () => {
-    if(!this.props.stream) {
+    if(!this.props.stream.title) {
       return "Are you sure you want to delete this stream?"
     }
 
-    return `Are you sure you want to delete ths stream ${this.props.stream.title}`
+    return `Are you sure you want to delete the stream ${this.props.stream.title}`
   }
 
   render() {
