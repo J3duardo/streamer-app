@@ -68,6 +68,7 @@ export const deleteStream = (id) => {
   streams.delete(`/streams/${id}`)
 
   return {
-    type: "DELETE_STREAM"
+    type: "DELETE_STREAM",
+    payload: id
   }
 }
