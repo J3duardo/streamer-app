@@ -33,20 +33,28 @@ class StreamList extends Component {
   }
 
   renderStreams = () => {
-    return this.props.streamsArray.map(stream => {
-      return (
-        <div className="item" key={stream.id}>
-          <i className="large middle aligned icon camera"/>
-          <div className="content">
-            {this.renderAdminButtons(stream)}
-            {stream.title}
-            <div className="description">
-              {stream.description}
+    if(this.props.streamsArray.length > 0) {
+      return this.props.streamsArray.map(stream => {
+        return (
+          <div className="item" key={stream.id}>
+            <i className="large middle aligned icon camera"/>
+            <div className="content">
+              {this.renderAdminButtons(stream)}
+              {stream.title}
+              <div className="description">
+                {stream.description}
+              </div>
             </div>
           </div>
+        )
+      })
+    } else {
+      return (
+        <div className="item">
+          <h3 className="title">No streams to show.</h3>
         </div>
       )
-    })
+    }
   }
 
   render() {
